@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "Обо мне",
+    "skills": "Навыки",
+    "portfolio": "Портфолио",
+    "contact": "Связаться"
+  },
+  "hero": {
+    "hi": "Привет, я",
+    "name": "Rauf Nabiyev",
+    "title": "Back-end Developer"
+  },
+  "itBerries": {
+    "title": "IT BERRIES",
+    "readMore": "ЧИТАТЬ"
+  },
+  "about": {
+    "title": "ОБО МНЕ",
+    "text": "Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.",
+    "explore": "СМОТРЕТЬ",
+    "design": "ДИЗАЙН",
+    "development": "РАЗРАБОТКА",
+    "maintenance": "ПОДДЕРЖКА",
+    "cardText": "Я могу сделать сайт под ваши задачи и подсказать лучшие решения. Также могу разработать сайт с нуля и консультировать на каждом этапе."
+  },
+  "skills": {
+    "title": "НАВЫКИ",
+    "usingNow": "ИСПОЛЬЗУЮ СЕЙЧАС:"
+  },
+  "portfolio": {
+    "title": "ПОРТФОЛИО",
+    "tabs": {
+      "all": "ВСЕ",
+      "coded": "КОД",
+      "designed": "ДИЗАЙН"
+    },
+    "demo": "ДЕМО",
+    "more": "ЕЩЁ",
+    "andMore": "И это ещё не всё!"
+  },
+  "footer": {
+    "backToTop": "НАВЕРХ",
+    "rights": "Все права защищены."
+  },
+  "pages": {
+    "backToHome": "НА ГЛАВНУЮ",
+    "contact": {
+      "title": "КОНТАКТЫ",
+      "text": "Быстрее всего связаться со мной — в Telegram.",
+      "messageMe": "НАПИШИ МНЕ",
+      "telegram": "TELEGRAM",
+      "openTelegram": "ОТКРЫТЬ TELEGRAM"
+    },
+    "about": {
+      "title": "ОБО МНЕ",
+      "text": "Здесь будет подробная информация обо мне."
+    },
+    "skills": {
+      "title": "НАВЫКИ",
+      "text": "Здесь будет отдельная страница со скиллами."
+    },
+    "portfolio": {
+      "title": "ПОРТФОЛИО",
+      "text": "Здесь будет портфолио проектов."
+    }
+  }
+}

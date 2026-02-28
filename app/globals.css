@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Futura Medium";
+  src:
+    local("Futura Medium"),
+    local("Futura-Medium"),
+    url("/fonts/Futura-Medium.woff2") format("woff2"),
+    url("/fonts/Futura-Medium.woff") format("woff"),
+    url("/fonts/Futura-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Futura Medium", Futura, "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: 0.08em;
+}

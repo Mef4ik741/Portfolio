@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "Haqqımda",
+    "skills": "Bacarıqlar",
+    "portfolio": "Portfolio",
+    "contact": "Əlaqə"
+  },
+  "hero": {
+    "hi": "Salam, mən",
+    "name": "Rauf Nabiyev",
+    "title": "Back-end Developer"
+  },
+  "itBerries": {
+    "title": "IT BERRIES",
+    "readMore": "ƏTRAFLI"
+  },
+  "about": {
+    "title": "HAQQIMDA",
+    "text": "Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.",
+    "explore": "BAX",
+    "design": "DİZAYN",
+    "development": "İNKIŞAF",
+    "maintenance": "DƏSTƏK",
+    "cardText": "Saytı sizin ehtiyaclarınıza uyğun hazırlaya bilərəm. Saytı sıfırdan yaradıb iş prosesində məsləhət verə bilərəm."
+  },
+  "skills": {
+    "title": "BACARIQLAR",
+    "usingNow": "İNDİ İSTİFADƏ EDİRƏM:"
+  },
+  "portfolio": {
+    "title": "PORTFOLIO",
+    "tabs": {
+      "all": "HAMISI",
+      "coded": "KOD",
+      "designed": "DİZAYN"
+    },
+    "demo": "DEMO",
+    "more": "DAHA ÇOX",
+    "andMore": "Daha çoxu gələcək!"
+  },
+  "footer": {
+    "backToTop": "YUXARI",
+    "rights": "Bütün hüquqlar qorunur."
+  },
+  "pages": {
+    "backToHome": "ANA SƏHİFƏ",
+    "contact": {
+      "title": "ƏLAQƏ",
+      "text": "Mənimlə əlaqə saxlamağın ən sürətli yolu Telegramdır.",
+      "messageMe": "MƏNƏ YAZ",
+      "telegram": "TELEGRAM",
+      "openTelegram": "TELEGRAM AÇ"
+    },
+    "about": {
+      "title": "HAQQIMDA",
+      "text": "Burada mənim haqqımda ətraflı məlumat olacaq."
+    },
+    "skills": {
+      "title": "BACARIQLAR",
+      "text": "Burada bacarıqlarım üçün ayrıca səhifə olacaq."
+    },
+    "portfolio": {
+      "title": "PORTFOLIO",
+      "text": "Burada layihələrimin portfolioları olacaq."
+    }
+  }
+}

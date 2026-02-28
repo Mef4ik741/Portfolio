@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "about": "About me",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "contact": "Contact me"
+  },
+  "hero": {
+    "hi": "Hi, I am",
+    "name": "Rauf Nabiyev",
+    "title": "Back-end Developer"
+  },
+  "itBerries": {
+    "title": "IT BERRIES",
+    "readMore": "READ MORE"
+  },
+  "about": {
+    "title": "ABOUT ME",
+    "text": "Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.",
+    "explore": "EXPLORE",
+    "design": "DESIGN",
+    "development": "DEVELOPMENT",
+    "maintenance": "MAINTENANCE",
+    "cardText": "I can design the site based on your needs and suggestions. I can also design the site from scratch and consult you during the job."
+  },
+  "skills": {
+    "title": "SKILLS",
+    "usingNow": "USING NOW:"
+  },
+  "portfolio": {
+    "title": "PORTFOLIO",
+    "tabs": {
+      "all": "ALL",
+      "coded": "CODED",
+      "designed": "DESIGNED"
+    },
+    "demo": "DEMO",
+    "more": "MORE",
+    "andMore": "And many more to come!"
+  },
+  "footer": {
+    "backToTop": "BACK TO TOP",
+    "rights": "All Rights Reserved."
+  },
+  "pages": {
+    "backToHome": "BACK TO HOME",
+    "contact": {
+      "title": "CONTACT",
+      "text": "The fastest way to contact me is Telegram.",
+      "messageMe": "MESSAGE ME",
+      "telegram": "TELEGRAM",
+      "openTelegram": "OPEN TELEGRAM"
+    },
+    "about": {
+      "title": "ABOUT ME",
+      "text": "Here will be detailed information about me."
+    },
+    "skills": {
+      "title": "SKILLS",
+      "text": "Here will be a separate page with my skills."
+    },
+    "portfolio": {
+      "title": "PORTFOLIO",
+      "text": "Here will be my project portfolio."
+    }
+  }
+}
