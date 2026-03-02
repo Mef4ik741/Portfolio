@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import aspNetCoreLogo from "../../pngs/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png";
 import redisLogo from "../../pngs/redis-logo-base-de-datos-instalar-debian.png";
 import postgresqlLogo from "../../pngs/postgresql-logo.png";
+import nextjsLogo from "../../pngs/nextjs-logo-square.webp";
 
 const COOKIE_NAME = "site_locale";
 const SUPPORTED_LOCALES = new Set(["en", "ru", "az"]);
@@ -95,6 +96,22 @@ export default async function SkillsPage() {
                 className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
               />
             </div>
+          </div>
+        </div>
+
+        <div className="mt-12 sm:mt-16">
+          <h2 className="text-sm sm:text-base font-extrabold tracking-[0.25em] text-black uppercase">
+            Практикую
+          </h2>
+
+          <div className="mt-8 sm:mt-10 flex justify-center">
+            <Image
+              src={nextjsLogo}
+              alt="Next.js"
+              width={140}
+              height={140}
+              className="object-contain w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+            />
           </div>
         </div>
 

@@ -9,6 +9,7 @@ import portrait from "../pngs/foto_portfolio.jpg";
 import aspNetCoreLogo from "../pngs/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png";
 import redisLogo from "../pngs/redis-logo-base-de-datos-instalar-debian.png";
 import postgresqlLogo from "../pngs/postgresql-logo.png";
+import nextjsLogo from "../pngs/nextjs-logo-square.webp";
 import PortfolioSection from "../PortfolioSection";
 
 const COOKIE_NAME = "site_locale";
@@ -366,6 +367,22 @@ export default async function Home() {
                     className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
                   />
                 </div>
+              </div>
+            </div>
+
+            <div className="mt-12 lg:mt-16">
+              <h3 className="text-sm sm:text-base font-extrabold tracking-[0.25em] text-black uppercase">
+                Практикую
+              </h3>
+
+              <div className="mt-8 flex justify-center">
+                <Image
+                  src={nextjsLogo}
+                  alt="Next.js"
+                  width={160}
+                  height={160}
+                  className="object-contain w-40 h-40 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-60 lg:h-60"
+                />
               </div>
             </div>
           </div>
