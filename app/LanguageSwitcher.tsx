@@ -21,7 +21,7 @@ export default function LanguageSwitcher({
   const [isPending, startTransition] = useTransition();
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" suppressHydrationWarning>
       {LOCALES.map((l) => (
         <button
           key={l.value}
@@ -48,6 +48,7 @@ export default function LanguageSwitcher({
               : "text-black/60 hover:text-black")
           }
           aria-pressed={l.value === currentLocale}
+          suppressHydrationWarning
         >
           {l.label}
         </button>

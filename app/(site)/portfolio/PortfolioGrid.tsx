@@ -18,7 +18,7 @@ export default function PortfolioGrid({ projects }: { projects: Project[] }) {
   const router = useRouter();
 
   return (
-    <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+    <div className="mt-8 sm:mt-12 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {projects.map((project) => {
         const preview = project.images?.[0]?.url || null;
 
@@ -40,8 +40,8 @@ export default function PortfolioGrid({ projects }: { projects: Project[] }) {
                   />
                 ) : null}
               </div>
-              <div className="border-t-2 border-black px-4 py-3">
-                <p className="text-[11px] font-extrabold tracking-[0.22em] text-black">
+              <div className="border-t-2 border-black px-3 sm:px-4 py-2 sm:py-3">
+                <p className="text-[10px] sm:text-[11px] font-extrabold tracking-[0.22em] text-black truncate">
                   {project.name}
                 </p>
               </div>

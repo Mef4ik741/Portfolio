@@ -18,28 +18,29 @@ export default async function SkillsPage() {
   const t = await getTranslations({ locale });
 
   return (
-    <div className="min-h-screen bg-[#D9D9D9] px-8 py-16 text-black">
+    <div className="min-h-screen bg-[#D9D9D9] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-black">
       <div className="mx-auto max-w-4xl text-center">
-        <div className="inline-block border-4 border-black px-16 py-4">
-          <h1 className="text-sm font-bold tracking-[0.4em]">
+        <div className="inline-block border-4 border-black px-8 sm:px-16 py-3 sm:py-4">
+          <h1 className="text-xs sm:text-sm font-bold tracking-[0.4em]">
             {t("pages.skills.title")}
           </h1>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10 sm:mt-16">
           <h2 className="text-xs font-bold tracking-[0.3em] text-black">
             {t("skills.usingNow")}
           </h2>
 
-          <div className="mt-10 grid grid-cols-2 gap-8 md:gap-16">
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-4 sm:gap-8 md:gap-16">
             <div className="flex flex-col items-center">
               <svg
-                width="160"
-                height="160"
+                width="100"
+                height="100"
                 viewBox="0 0 790 790"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-label="C#"
+                className="sm:w-32 sm:h-32 md:w-40 md:h-40"
               >
                 <path
                   fill="#512bd4"
@@ -68,9 +69,9 @@ export default async function SkillsPage() {
               <Image
                 src={aspNetCoreLogo}
                 alt="ASP.NET Core"
-                width={160}
-                height={160}
-                className="object-contain"
+                width={100}
+                height={100}
+                className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
                 priority
               />
             </div>
@@ -79,9 +80,9 @@ export default async function SkillsPage() {
               <Image
                 src={redisLogo}
                 alt="Redis"
-                width={160}
-                height={160}
-                className="object-contain"
+                width={100}
+                height={100}
+                className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
               />
             </div>
 
@@ -89,15 +90,15 @@ export default async function SkillsPage() {
               <Image
                 src={postgresqlLogo}
                 alt="PostgreSQL"
-                width={160}
-                height={160}
-                className="object-contain"
+                width={100}
+                height={100}
+                className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
               />
             </div>
           </div>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-10 sm:mt-12">
           <Link
             href="/"
             className="text-xs font-semibold tracking-[0.2em] text-black/80 hover:text-black"

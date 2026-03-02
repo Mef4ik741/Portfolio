@@ -11,13 +11,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Конвертируем File в base64
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
     const base64 = buffer.toString("base64");
     const dataURI = `data:${file.type};base64,${base64}`;
 
-    // Загружаем на Cloudinary
     const folder = type === "readme" ? "portfolio/readme" : "portfolio/images";
     
     const result = await cloudinary.uploader.upload(dataURI, {

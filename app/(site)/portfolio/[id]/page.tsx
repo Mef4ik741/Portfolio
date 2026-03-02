@@ -208,11 +208,11 @@ export default async function ProjectDetailsPage({
   const readmeText = project.readme_url ? await fetchReadme(project.readme_url) : null;
 
   return (
-    <div className="min-h-screen bg-[#D9D9D9] px-8 py-16 text-black">
+    <div className="min-h-screen bg-[#D9D9D9] px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-black">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="flex items-center justify-between border-2 border-black bg-white px-6 py-4">
-          <h1 className="text-sm font-extrabold tracking-[0.25em]">{project.name}</h1>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-2 border-black bg-white px-4 sm:px-6 py-4 gap-3 sm:gap-0">
+          <h1 className="text-xs sm:text-sm font-extrabold tracking-[0.25em] truncate">{project.name}</h1>
           <Link
             href="/portfolio"
             className="text-xs font-extrabold tracking-[0.25em] text-black/70 hover:text-black"
@@ -222,11 +222,11 @@ export default async function ProjectDetailsPage({
         </div>
 
         {/* Main content */}
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-12">
           {/* Left: Images */}
           <div className="lg:col-span-7">
             {sortedImages.length > 0 ? (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {/* Main image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden border-2 border-black bg-white">
                   <Image
@@ -240,11 +240,11 @@ export default async function ProjectDetailsPage({
 
                 {/* Thumbnails */}
                 {sortedImages.length > 1 ? (
-                  <div className="flex gap-3 overflow-x-auto border-2 border-black bg-white p-4">
+                  <div className="flex gap-2 sm:gap-3 overflow-x-auto border-2 border-black bg-white p-3 sm:p-4">
                     {sortedImages.map((img) => (
                       <div
                         key={img.id}
-                        className="relative h-20 w-28 shrink-0 overflow-hidden border-2 border-black/30"
+                        className="relative h-16 sm:h-20 w-20 sm:w-28 shrink-0 overflow-hidden border-2 border-black/30"
                       >
                         <Image
                           src={img.url}
@@ -264,16 +264,16 @@ export default async function ProjectDetailsPage({
 
           {/* Right: Links & README */}
           <div className="lg:col-span-5">
-            <div className="border-2 border-black bg-white p-6">
-              <h2 className="text-xs font-extrabold tracking-[0.25em]">LINKS</h2>
+            <div className="border-2 border-black bg-white p-4 sm:p-6">
+              <h2 className="text-xs sm:text-sm font-extrabold tracking-[0.25em]">LINKS</h2>
 
-              <div className="mt-4 grid gap-3">
+              <div className="mt-4 grid gap-2 sm:gap-3">
                 {project.website_url ? (
                   <a
                     href={project.website_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-2 border-black px-4 py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
+                    className="border-2 border-black px-3 sm:px-4 py-2 sm:py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
                   >
                     WEBSITE
                   </a>
@@ -283,7 +283,7 @@ export default async function ProjectDetailsPage({
                     href={project.github_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-2 border-black px-4 py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
+                    className="border-2 border-black px-3 sm:px-4 py-2 sm:py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
                   >
                     GITHUB
                   </a>
@@ -293,7 +293,7 @@ export default async function ProjectDetailsPage({
                     href={project.youtube_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-2 border-black px-4 py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
+                    className="border-2 border-black px-3 sm:px-4 py-2 sm:py-3 text-xs font-semibold tracking-[0.18em] hover:bg-black/5"
                   >
                     YOUTUBE
                   </a>
@@ -302,9 +302,9 @@ export default async function ProjectDetailsPage({
 
               {readmeText ? (
                 <>
-                  <h2 className="mt-8 text-xs font-extrabold tracking-[0.25em]">README</h2>
-                  <div className="mt-4 max-h-[400px] overflow-auto border-2 border-black p-4">
-                    <div className="text-[13px] leading-6 text-black/85">
+                  <h2 className="mt-6 sm:mt-8 text-xs sm:text-sm font-extrabold tracking-[0.25em]">README</h2>
+                  <div className="mt-4 max-h-[300px] sm:max-h-[400px] overflow-auto border-2 border-black p-3 sm:p-4">
+                    <div className="text-xs sm:text-[13px] leading-5 sm:leading-6 text-black/85">
                       {renderMarkdown(readmeText)}
                     </div>
                   </div>

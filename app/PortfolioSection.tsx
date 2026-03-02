@@ -1,79 +1,58 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type PortfolioTab = "all" | "coded" | "designed";
 
-type PortfolioItem = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  imageUrl: string;
-  category: Exclude<PortfolioTab, "all">;
-  featured?: boolean;
+type Project = {
+  id: number;
+  name: string;
+  website_url?: string | null;
+  images: { id: number; url: string; order: number }[];
 };
+
+function getDomain(url: string) {
+  try {
+    return new URL(url).host.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
 
 export default function PortfolioSection() {
   const t = useTranslations();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<PortfolioTab>("all");
 
-  const items: PortfolioItem[] = useMemo(
-    () => [
-      {
-        id: "grid-1",
-        title: "Abstract Hex",
-        imageUrl:
-          "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
-        category: "designed",
-      },
-      {
-        id: "eatsome",
-        title: "eatsome.",
-        subtitle: "Restaurant browsing in React.js (Using Yelp API)",
-        imageUrl:
-          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
-        category: "coded",
-        featured: true,
-      },
-      {
-        id: "car-1",
-        title: "Drive",
-        imageUrl:
-          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
-        category: "coded",
-      },
-      {
-        id: "neon-1",
-        title: "Neon",
-        imageUrl:
-          "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80",
-        category: "designed",
-      },
-      {
-        id: "car-2",
-        title: "Garage",
-        imageUrl:
-          "https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80",
-        category: "coded",
-      },
-      {
-        id: "grid-2",
-        title: "Abstract Grid",
-        imageUrl:
-          "https://images.unsplash.com/photo-1520975958225-437dce485a62?auto=format&fit=crop&w=1200&q=80",
-        category: "designed",
-      },
-    ],
-    [],
-  );
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const filteredItems = useMemo(() => {
-    if (activeTab === "all") return items;
-    return items.filter((x) => x.category === activeTab);
-  }, [activeTab, items]);
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        setLoading(true);
+        const res = await fetch("/api/projects", { cache: "no-store" });
+        const data = await res.json();
+        if (!cancelled) {
+          setProjects(Array.isArray(data) ? (data as Project[]) : []);
+        }
+      } catch {
+        if (!cancelled) setProjects([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <section className="bg-[#0B0B0B] text-white">
@@ -97,9 +76,9 @@ export default function PortfolioSection() {
       </div>
 
       <div className="bg-[#1A1A1A]">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex items-center justify-center py-8">
-            <div className="flex w-full max-w-md items-center justify-center gap-10 border-t border-white/30 pt-5 text-[11px] font-semibold tracking-[0.25em] text-white/70">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex items-center justify-center py-6 sm:py-8">
+            <div className="flex w-full max-w-md items-center justify-center gap-4 sm:gap-10 border-t border-white/30 pt-5 text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] text-white/70">
               <button
                 type="button"
                 onClick={() => setActiveTab("all")}
@@ -113,8 +92,10 @@ export default function PortfolioSection() {
                 type="button"
                 onClick={() => setActiveTab("coded")}
                 className={
-                  activeTab === "coded" ? "text-white" : "hover:text-white"
+                  (activeTab === "coded" ? "text-white" : "hover:text-white") +
+                  " opacity-40"
                 }
+                disabled
               >
                 {t("portfolio.tabs.coded")}
               </button>
@@ -122,80 +103,73 @@ export default function PortfolioSection() {
                 type="button"
                 onClick={() => setActiveTab("designed")}
                 className={
-                  activeTab === "designed" ? "text-white" : "hover:text-white"
+                  (activeTab === "designed" ? "text-white" : "hover:text-white") +
+                  " opacity-40"
                 }
+                disabled
               >
                 {t("portfolio.tabs.designed")}
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
-            {filteredItems.map((item) => {
-              const showOverlay = Boolean(item.featured);
+          <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 md:grid-cols-3">
+            {loading ? (
+              <div className="col-span-full border border-white/20 bg-black/10 px-6 py-10 text-center text-xs font-semibold tracking-[0.25em] text-white/60">
+                LOADING...
+              </div>
+            ) : projects.length === 0 ? (
+              <div className="col-span-full border border-white/20 bg-black/10 px-6 py-10 text-center text-xs font-semibold tracking-[0.25em] text-white/60">
+                PROJECTS NOT FOUND
+              </div>
+            ) : (
+              projects.map((p) => {
+                const preview = p.images?.[0]?.url || null;
+                if (!preview) return null;
 
-              return (
-                <div key={item.id} className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
+                const domain = p.website_url ? getDomain(p.website_url) : null;
 
-                  <div
-                    className={
-                      "absolute inset-0 bg-black/55 transition-opacity " +
-                      (showOverlay
-                        ? "opacity-100"
-                        : "opacity-0 hover:opacity-100")
-                    }
-                  />
-
-                  <div
-                    className={
-                      "absolute inset-0 grid place-items-center p-6 transition-opacity " +
-                      (showOverlay
-                        ? "opacity-100"
-                        : "opacity-0 hover:opacity-100")
-                    }
+                return (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => router.push(`/portfolio/${p.id}`)}
+                    className="group relative aspect-[4/3] overflow-hidden text-left"
+                    aria-label={p.name}
                   >
-                    <div className="text-center">
-                      <p className="text-[10px] font-semibold tracking-[0.25em] text-white/80">
-                        {item.category === "coded"
-                          ? t("portfolio.tabs.coded")
-                          : t("portfolio.tabs.designed")}
-                      </p>
-                      <p className="mt-3 text-3xl font-extrabold tracking-[0.1em]">
-                        {item.title}
-                      </p>
-                      {item.subtitle ? (
-                        <p className="mx-auto mt-3 max-w-xs text-[11px] leading-5 text-white/70">
-                          {item.subtitle}
-                        </p>
-                      ) : null}
+                    <Image src={preview} alt={p.name} fill className="object-cover" />
 
-                      <div className="mt-6 flex items-center justify-center gap-3 text-[11px] font-semibold tracking-[0.25em] text-white/85">
-                        <Link href="/portfolio" className="hover:text-white">
-                          {t("portfolio.demo")}
-                        </Link>
-                        <span className="h-3 w-px bg-white/40" />
-                        <Link href="/portfolio" className="hover:text-white">
-                          {t("portfolio.more")}
-                        </Link>
+                    <div className="pointer-events-none absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100" />
+
+                    <div className="pointer-events-none absolute inset-0 flex items-end p-4 opacity-0 transition-all duration-200 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0">
+                      <div className="pointer-events-auto">
+                        <p className="text-xs font-extrabold tracking-[0.18em] text-white">
+                          {p.name}
+                        </p>
+                        {domain && p.website_url ? (
+                          <a
+                            href={p.website_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-2 inline-block text-[10px] font-semibold tracking-[0.22em] text-white/85 underline underline-offset-4 hover:text-white"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {domain}
+                          </a>
+                        ) : null}
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  </button>
+                );
+              })
+            )}
           </div>
 
-          <div className="bg-[#1A1A1A] py-12 text-center">
+          <div className="bg-[#1A1A1A] py-8 sm:py-12 text-center">
             <p className="text-xs font-semibold tracking-[0.1em] text-white/85">
               {t("portfolio.andMore")}
             </p>
-            <div className="mx-auto mt-8 h-px w-full max-w-5xl bg-white/35" />
+            <div className="mx-auto mt-6 sm:mt-8 h-px w-full max-w-5xl bg-white/35" />
           </div>
         </div>
       </div>

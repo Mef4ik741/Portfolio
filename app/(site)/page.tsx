@@ -71,20 +71,20 @@ export default async function Home() {
             }}
           />
 
-          <div className="relative z-10 grid min-h-[640px] grid-cols-12 gap-0 px-8 pt-10">
-            <div className="col-span-6 flex flex-col justify-center py-10 text-black">
-              <div className="max-w-md pl-12">
-                <p className="text-xl font-semibold tracking-tight">
+          <div className="relative z-10 grid min-h-[640px] grid-cols-1 lg:grid-cols-12 gap-0 px-4 sm:px-6 lg:px-8 pt-6 lg:pt-10">
+            <div className="col-span-1 lg:col-span-6 flex flex-col justify-center py-6 lg:py-10 text-black order-2 lg:order-1">
+              <div className="max-w-md pl-0 lg:pl-12 text-center lg:text-left">
+                <p className="text-lg lg:text-xl font-semibold tracking-tight">
                   {t("hero.hi")}
                 </p>
-                <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] tracking-tight">
+                <h1 className="mt-3 lg:mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.05] tracking-tight">
                   {t("hero.name")}
                 </h1>
-                <p className="mt-3 text-sm font-semibold text-black/50">
+                <p className="mt-2 lg:mt-3 text-xs sm:text-sm font-semibold text-black/50">
                   {t("hero.title")}
                 </p>
 
-                <div className="mt-12 flex items-center gap-4">
+                <div className="mt-8 lg:mt-12 flex items-center justify-center lg:justify-start gap-4">
                   <SocialButton href="https://github.com/Mef4ik741" label="GitHub">
                     <svg
                       width="20"
@@ -115,8 +115,8 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="col-span-6 relative flex items-end" style={{ marginLeft: '-149px' }}>
-              <div className="relative h-[560px] w-[420px] rotate-[15deg]">
+            <div className="col-span-1 lg:col-span-6 relative flex items-center lg:items-end justify-center order-1 lg:order-2 mb-4 lg:mb-0" style={{ marginLeft: '0' }}>
+              <div className="relative h-[300px] w-[220px] sm:h-[400px] sm:w-[300px] lg:h-[560px] lg:w-[420px] rotate-[15deg]">
                 <Image
                   src={portrait}
                   alt="Portrait"
@@ -129,12 +129,12 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[#1A1A1A] px-10 py-10">
+        <section className="relative overflow-hidden bg-[#1A1A1A] px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
           <div className="relative z-10 max-w-[720px]">
-            <h2 className="text-sm font-semibold tracking-[0.35em] text-white">
+            <h2 className="text-xs sm:text-sm font-semibold tracking-[0.35em] text-white">
               {t("itBerries.title")}
             </h2>
-            <p className="mt-6 text-xs leading-6 text-white/65">
+            <p className="mt-4 lg:mt-6 text-xs leading-5 lg:leading-6 text-white/65">
               Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
               varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
               quis libero viverra facilisis ut ac est. Morbi commodo, eros in
@@ -142,36 +142,36 @@ export default async function Home() {
               tellus. Etiam enim erat, suscipit eu semper a, dictum sit amet
               elit. Nunc egestas nisi eget enim gravida facilisis.
             </p>
-            <div className="mt-8 flex items-center gap-4">
-              <span className="h-px w-10 bg-white/40" />
+            <div className="mt-6 lg:mt-8 flex items-center gap-3 lg:gap-4">
+              <span className="h-px w-8 lg:w-10 bg-white/40" />
               <Link
-                className="text-[11px] font-semibold tracking-[0.2em] text-white/80 transition-colors hover:text-white"
+                className="text-[10px] lg:text-[11px] font-semibold tracking-[0.2em] text-white/80 transition-colors hover:text-white"
                 href="/portfolio"
               >
                 {t("itBerries.readMore")}
               </Link>
-              <span className="h-px w-10 bg-white/40" />
+              <span className="h-px w-8 lg:w-10 bg-white/40" />
             </div>
           </div>
 
           <div className="pointer-events-none absolute -right-24 -bottom-48 opacity-20">
-            <Image src={watermarkLogo} alt="" width={520} height={520} />
+            <Image src={watermarkLogo} alt="" width={400} height={400} className="lg:w-[520px] lg:h-[520px]" />
           </div>
         </section>
 
-        <section className="bg-[#D9D9D9] py-20">
-          <div className="mx-auto max-w-4xl px-8 text-center">
-            <div className="inline-block border-4 border-black px-12 py-4">
-              <h2 className="text-sm font-bold tracking-[0.4em] text-black">
+        <section className="bg-[#D9D9D9] py-12 lg:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-block border-4 border-black px-6 sm:px-12 py-3 sm:py-4">
+              <h2 className="text-xs sm:text-sm font-bold tracking-[0.4em] text-black">
                 {t("about.title")}
               </h2>
             </div>
 
-            <p className="mx-auto mt-10 max-w-xl text-xs leading-6 text-black/70">
+            <p className="mx-auto mt-6 lg:mt-10 max-w-xl text-xs leading-5 lg:leading-6 text-black/70">
               {t("about.text")}
             </p>
 
-            <div className="mt-10 flex items-center justify-center gap-4">
+            <div className="mt-8 lg:mt-10 flex items-center justify-center gap-4">
               <span className="h-6 w-px bg-black/40" />
               <Link
                 className="text-xs font-semibold tracking-[0.2em] text-black transition-colors hover:text-black/70"
@@ -182,15 +182,15 @@ export default async function Home() {
               <span className="h-6 w-px bg-black/40" />
             </div>
 
-            <div className="mt-10 flex items-center justify-center gap-2">
-              <span className="h-px w-12 bg-black" />
+            <div className="mt-8 lg:mt-10 flex items-center justify-center gap-2">
+              <span className="h-px w-8 sm:w-12 bg-black" />
               <svg
-                width="40"
-                height="12"
+                width="32"
+                height="10"
                 viewBox="0 0 40 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-black"
+                className="text-black sm:w-10 sm:h-3"
               >
                 <path
                   d="M0 6h12M16 2l4 4-4 4M24 2l4 4-4 4M32 6h8"
@@ -198,20 +198,20 @@ export default async function Home() {
                   strokeWidth="1.5"
                 />
               </svg>
-              <span className="h-px w-12 bg-black" />
+              <span className="h-px w-8 sm:w-12 bg-black" />
             </div>
 
-            <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+            <div className="mt-12 lg:mt-16 grid grid-cols-1 gap-8 lg:gap-12 md:grid-cols-2">
               <div className="text-left">
                 <div className="flex items-center gap-3">
                   <svg
-                    width="32"
-                    height="32"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    className="text-black/30"
+                    className="text-black/30 lg:w-8 lg:h-8"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <circle cx="12" cy="12" r="4" />
@@ -229,13 +229,13 @@ export default async function Home() {
               <div className="text-left">
                 <div className="flex items-center gap-3">
                   <svg
-                    width="32"
-                    height="32"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    className="text-black/30"
+                    className="text-black/30 lg:w-8 lg:h-8"
                   >
                     <path d="M4 6h16M4 12h16M4 18h7" />
                     <path d="M14 15l3 3 5-5" />
@@ -252,13 +252,13 @@ export default async function Home() {
               <div className="text-left md:col-span-2 md:mx-auto md:max-w-sm">
                 <div className="flex items-center gap-3">
                   <svg
-                    width="32"
-                    height="32"
+                    width="28"
+                    height="28"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    className="text-black/30"
+                    className="text-black/30 lg:w-8 lg:h-8"
                   >
                     <circle cx="12" cy="12" r="3" />
                     <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
@@ -274,15 +274,15 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="mt-16 flex items-center justify-center gap-2">
-              <span className="h-px w-12 bg-black" />
+            <div className="mt-12 lg:mt-16 flex items-center justify-center gap-2">
+              <span className="h-px w-8 sm:w-12 bg-black" />
               <svg
-                width="40"
-                height="12"
+                width="32"
+                height="10"
                 viewBox="0 0 40 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-black"
+                className="text-black sm:w-10 sm:h-3"
               >
                 <path
                   d="M0 6h12M16 2l4 4-4 4M24 2l4 4-4 4M32 6h8"
@@ -290,28 +290,29 @@ export default async function Home() {
                   strokeWidth="1.5"
                 />
               </svg>
-              <span className="h-px w-12 bg-black" />
+              <span className="h-px w-8 sm:w-12 bg-black" />
             </div>
 
-            <div className="mt-16 inline-block border-4 border-black px-16 py-4">
-              <h2 className="text-sm font-bold tracking-[0.4em] text-black">
+            <div className="mt-12 lg:mt-16 inline-block border-4 border-black px-8 sm:px-16 py-3 sm:py-4">
+              <h2 className="text-xs sm:text-sm font-bold tracking-[0.4em] text-black">
                 {t("skills.title")}
               </h2>
             </div>
 
-            <div className="mt-16">
+            <div className="mt-12 lg:mt-16">
               <h3 className="text-xs font-bold tracking-[0.3em] text-black">
                 {t("skills.usingNow")}
               </h3>
 
-              <div className="mt-8 grid grid-cols-2 gap-8 md:gap-16">
-                <div className="flex flex-col items-center gap-3">
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-8 md:gap-16">
+                <div className="flex flex-col items-center gap-2 sm:gap-3">
                   <svg
-                    width="160"
-                    height="160"
+                    width="120"
+                    height="120"
                     viewBox="0 0 790 790"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="sm:w-32 sm:h-32 md:w-40 md:h-40"
                   >
                     <path
                       fill="#512bd4"
@@ -336,33 +337,33 @@ export default async function Home() {
                   </svg>
                 </div>
 
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-2 sm:gap-3">
                   <Image
                     src={aspNetCoreLogo}
                     alt="ASP.NET Core"
-                    width={160}
-                    height={160}
-                    className="object-contain"
+                    width={120}
+                    height={120}
+                    className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
                   />
                 </div>
 
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-2 sm:gap-3">
                   <Image
                     src={redisLogo}
                     alt="Redis"
-                    width={160}
-                    height={160}
-                    className="object-contain"
+                    width={120}
+                    height={120}
+                    className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
                   />
                 </div>
 
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-2 sm:gap-3">
                   <Image
                     src={postgresqlLogo}
                     alt="PostgreSQL"
-                    width={160}
-                    height={160}
-                    className="object-contain"
+                    width={120}
+                    height={120}
+                    className="object-contain sm:w-32 sm:h-32 md:w-40 md:h-40"
                   />
                 </div>
               </div>
