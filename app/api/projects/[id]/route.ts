@@ -3,6 +3,9 @@ import { getPool } from "@/lib/db";
 
 const pool = getPool();
 
+// Cache individual projects for 5 minutes with stale-while-revalidate
+export const revalidate = 300;
+
 // Получение одного проекта
 export async function GET(
   request: NextRequest,
@@ -41,7 +44,11 @@ export async function GET(
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
     }
 
-    return NextResponse.json(result.rows[0]);
+    return NextResponse.json(result.rows[0], {
+      headers: {
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
+      },
+    });
   } catch (error) {
     console.error("Error fetching project:", error);
     return NextResponse.json(

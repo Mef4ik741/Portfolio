@@ -28,9 +28,7 @@ async function fetchProjects(): Promise<Project[]> {
   if (!host) return [];
 
   try {
-    const res = await fetch(`${protocol}://${host}/api/projects`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${protocol}://${host}/api/projects`);
 
     const data = await res.json();
     return Array.isArray(data) ? (data as Project[]) : [];

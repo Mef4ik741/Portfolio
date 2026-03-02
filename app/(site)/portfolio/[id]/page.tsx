@@ -27,9 +27,7 @@ async function fetchProject(id: string): Promise<Project | null> {
 
     if (!host) return null;
 
-    const res = await fetch(`${protocol}://${host}/api/projects/${id}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${protocol}://${host}/api/projects/${id}`);
 
     if (!res.ok) return null;
     const data = await res.json();
@@ -49,8 +47,7 @@ async function fetchReadme(url: string): Promise<string | null> {
     if (!host) return null;
 
     const res = await fetch(
-      `${protocol}://${host}/api/readme?url=${encodeURIComponent(url)}`,
-      { cache: "no-store" }
+      `${protocol}://${host}/api/readme?url=${encodeURIComponent(url)}`
     );
 
     if (!res.ok) return null;
@@ -235,6 +232,7 @@ export default async function ProjectDetailsPage({
                     fill
                     className="object-cover"
                     priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 55vw"
                   />
                 </div>
 
@@ -251,6 +249,8 @@ export default async function ProjectDetailsPage({
                           alt=""
                           fill
                           className="object-cover"
+                          loading="lazy"
+                          sizes="80px"
                         />
                       </div>
                     ))}

@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Cache readme responses for 1 hour
+export const revalidate = 3600;
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -20,7 +23,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Invalid protocol" }, { status: 400 });
     }
 
-    const res = await fetch(parsed.toString(), { cache: "no-store" });
+    const res = await fetch(parsed.toString(), {
+      next: { revalidate: 3600 },
+    });
     if (!res.ok) {
       return NextResponse.json(
         { error: "Failed to fetch readme" },

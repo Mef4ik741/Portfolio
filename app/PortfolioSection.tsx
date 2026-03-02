@@ -137,7 +137,14 @@ export default function PortfolioSection() {
                     className="group relative aspect-[4/3] overflow-hidden text-left"
                     aria-label={p.name}
                   >
-                    <Image src={preview} alt={p.name} fill className="object-cover" />
+                    <Image
+                      src={preview}
+                      alt={p.name}
+                      fill
+                      className="object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    />
 
                     <div className="pointer-events-none absolute inset-0 bg-black/55 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100" />
 

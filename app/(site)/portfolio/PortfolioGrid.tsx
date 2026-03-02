@@ -37,6 +37,8 @@ export default function PortfolioGrid({ projects }: { projects: Project[] }) {
                     alt={project.name}
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 ) : null}
               </div>
