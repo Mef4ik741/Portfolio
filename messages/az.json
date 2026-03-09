@@ -11,12 +11,13 @@
     "title": "Back-end Developer"
   },
   "itBerries": {
-    "title": "IT BERRIES",
+    "title": "MƏNİM YANAŞMAMAM",
+    "text": "Etibarlı back-end sistemləri qururam: təmiz arxitektura, düşünülmüş API dizaynı, təhlükəsizlik və performans.",
     "readMore": "ƏTRAFLI"
   },
   "about": {
     "title": "HAQQIMDA",
-    "text": "Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna quis libero viverra facilisis ut ac est.",
+    "text": "Mən back-end developerəm. Dəstəklənə bilən servis və API-lər hazırlayıram, məlumat modellərini düşünürəm və performansı optimallaşdırıram.",
     "explore": "BAX",
     "design": "DİZAYN",
     "development": "İNKIŞAF",

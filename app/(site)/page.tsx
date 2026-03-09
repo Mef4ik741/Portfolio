@@ -136,12 +136,7 @@ export default async function Home() {
               {t("itBerries.title")}
             </h2>
             <p className="mt-4 lg:mt-6 text-xs leading-5 lg:leading-6 text-white/65">
-              Nulla in velit a metus rhoncus tempus. Nulla congue nulla vel sem
-              varius finibus. Sed ornare sit amet lorem sed viverra. In vel urna
-              quis libero viverra facilisis ut ac est. Morbi commodo, eros in
-              dignissim tempus, lacus odio rutrum augue, in semper sem magna quis
-              tellus. Etiam enim erat, suscipit eu semper a, dictum sit amet
-              elit. Nunc egestas nisi eget enim gravida facilisis.
+              {t("itBerries.text")}
             </p>
             <div className="mt-6 lg:mt-8 flex items-center gap-3 lg:gap-4">
               <span className="h-px w-8 lg:w-10 bg-white/40" />

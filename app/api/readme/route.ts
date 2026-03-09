@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Cache readme responses for 1 hour
 export const revalidate = 3600;
 
 export async function GET(request: NextRequest) {

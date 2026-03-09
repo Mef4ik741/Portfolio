@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 import itbLogo from "./pngs/logo.png";
@@ -41,7 +41,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
+        {}
         <div className="col-span-7 hidden md:flex items-center justify-end gap-6 lg:gap-10 text-sm font-medium text-black/80">
           {navLinks.map((link) => (
             <Link
@@ -59,12 +59,19 @@ export default function Navbar() {
             {t("nav.contact")}
           </Link>
 
-          <LanguageSwitcher currentLocale={locale} />
+          <Link
+            className="text-xs font-medium text-black/50 hover:text-black transition-colors"
+            href="/admin"
+          >
+            Admin
+          </Link>
+
+          <LanguageSwitcher currentLocale={locale} onLocaleChange={setLocale} />
         </div>
 
         {/* Mobile Menu Button */}
         <div className="col-span-6 flex md:hidden items-center justify-end gap-3">
-          <LanguageSwitcher currentLocale={locale} />
+          <LanguageSwitcher currentLocale={locale} onLocaleChange={setLocale} />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -104,6 +111,13 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               {t("nav.contact")}
+            </Link>
+            <Link
+              href="/admin"
+              className="block py-2 text-xs font-medium text-black/50 hover:text-black"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Admin
             </Link>
           </div>
         </div>

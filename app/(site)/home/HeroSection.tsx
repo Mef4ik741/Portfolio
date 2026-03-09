@@ -12,9 +12,14 @@ export default async function HeroSection({ locale }: Props) {
   const t = await getTranslations({ locale });
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-white md:bg-transparent">
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 md:hidden"
+        aria-hidden="true"
+        style={{ background: "#FFFFFF" }}
+      />
+      <div
+        className="absolute inset-0 hidden md:block"
         aria-hidden="true"
         style={{
           background:
@@ -22,7 +27,7 @@ export default async function HeroSection({ locale }: Props) {
         }}
       />
       <div
-        className="absolute inset-y-0 left-0 w-[62%]"
+        className="absolute inset-y-0 left-0 hidden w-[62%] md:block"
         aria-hidden="true"
         style={{
           clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)",
@@ -30,7 +35,7 @@ export default async function HeroSection({ locale }: Props) {
         }}
       />
       <div
-        className="absolute inset-y-0 right-0 w-[62%]"
+        className="absolute inset-y-0 right-0 hidden w-[62%] md:block"
         aria-hidden="true"
         style={{
           clipPath: "polygon(14% 0, 100% 0, 100% 100%, 0 100%)",
@@ -39,13 +44,13 @@ export default async function HeroSection({ locale }: Props) {
       />
 
       <div className="relative z-10 grid min-h-[640px] grid-cols-12 gap-0 px-8 pt-10">
-        <div className="col-span-6 flex flex-col justify-center py-10 text-black">
+        <div className="col-span-6 flex flex-col justify-center py-10 text-white md:text-black">
           <div className="max-w-md pl-12">
             <p className="text-xl font-semibold tracking-tight">{t("hero.hi")}</p>
             <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] tracking-tight">
               {t("hero.name")}
             </h1>
-            <p className="mt-3 text-sm font-semibold text-black/50">
+            <p className="mt-3 text-sm font-semibold text-white/70 md:text-black/50">
               {t("hero.title")}
             </p>
 
