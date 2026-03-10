@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type PortfolioTab = "all" | "coded" | "designed";
+type PortfolioTab = "all";
 
 type Project = {
   id: number;
@@ -87,28 +87,6 @@ export default function PortfolioSection() {
                 }
               >
                 {t("portfolio.tabs.all")}
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("coded")}
-                className={
-                  (activeTab === "coded" ? "text-white" : "hover:text-white") +
-                  " opacity-40"
-                }
-                disabled
-              >
-                {t("portfolio.tabs.coded")}
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("designed")}
-                className={
-                  (activeTab === "designed" ? "text-white" : "hover:text-white") +
-                  " opacity-40"
-                }
-                disabled
-              >
-                {t("portfolio.tabs.designed")}
               </button>
             </div>
           </div>

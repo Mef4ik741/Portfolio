@@ -367,7 +367,7 @@ export default async function Home() {
 
             <div className="mt-12 lg:mt-16">
               <h3 className="text-sm sm:text-base font-extrabold tracking-[0.25em] text-black uppercase">
-                Практикую
+                {t("skills.practicing")}
               </h3>
 
               <div className="mt-8 flex justify-center">

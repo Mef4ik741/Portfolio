@@ -101,7 +101,7 @@ export default async function SkillsPage() {
 
         <div className="mt-12 sm:mt-16">
           <h2 className="text-sm sm:text-base font-extrabold tracking-[0.25em] text-black uppercase">
-            Практикую
+            {t("skills.practicing")}
           </h2>
 
           <div className="mt-8 sm:mt-10 flex justify-center">

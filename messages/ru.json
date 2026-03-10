@@ -26,7 +26,8 @@
   },
   "skills": {
     "title": "НАВЫКИ",
-    "usingNow": "ИСПОЛЬЗУЮ СЕЙЧАС:"
+    "usingNow": "ИСПОЛЬЗУЮ СЕЙЧАС:",
+    "practicing": "Практикую"
   },
   "portfolio": {
     "title": "ПОРТФОЛИО",

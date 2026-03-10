@@ -26,7 +26,8 @@
   },
   "skills": {
     "title": "SKILLS",
-    "usingNow": "USING NOW:"
+    "usingNow": "USING NOW:",
+    "practicing": "PRACTICING"
   },
   "portfolio": {
     "title": "PORTFOLIO",
