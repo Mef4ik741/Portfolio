@@ -17,7 +17,7 @@ export default async function AboutPage() {
       <div className="mx-auto max-w-3xl">
         <div className="inline-block border-4 border-black px-6 sm:px-12 py-3 sm:py-4 mb-8 sm:mb-12">
           <h1 className="text-xs sm:text-sm font-bold tracking-[0.4em]">
-            Обо мне
+            {t("pages.about.title")}
           </h1>
         </div>
 
@@ -25,10 +25,10 @@ export default async function AboutPage() {
           {/* Block 1: Education */}
           <div>
             <h2 className="text-sm font-extrabold tracking-[0.25em] text-black uppercase mb-5 sm:mb-6">
-              Образование
+              {t("pages.about.education.title")}
             </h2>
             <p className="text-sm leading-7 text-black/80">
-              Я — .NET Back-end Developer и выпускник{" "}
+              {t("pages.about.education.textBeforeLink")} {" "}
               <a
                 href="https://itstep.az/ru"
                 target="_blank"
@@ -37,56 +37,51 @@ export default async function AboutPage() {
               >
                 IT Step Academy
               </a>
-              . Обучался в академии на протяжении 2,5 лет по направлению разработки
-              программного обеспечения, где углублённо изучал архитектуру приложений,
-              серверную разработку и принципы построения надёжных систем.
+              {t("pages.about.education.textAfterLink")}
             </p>
           </div>
 
           {/* Block 2: Philosophy */}
           <div>
             <h2 className="text-sm font-extrabold tracking-[0.25em] text-black uppercase mb-5 sm:mb-6">
-              Мой подход
+              {t("pages.about.approach.title")}
             </h2>
             <p className="text-sm leading-7 text-black/80">
-              Я выбрал backend-направление осознанно — мне важно контролировать
-              ключевую логику приложения, отвечать за архитектуру, безопасность и
-              стабильность работы системы. Мне нравится брать на себя ответственность
-              за фундамент проекта и обеспечивать его надёжность и масштабируемость.
+              {t("pages.about.approach.text")}
             </p>
           </div>
 
           {/* Block 3: Projects */}
           <div>
             <h2 className="text-sm font-extrabold tracking-[0.25em] text-black uppercase mb-5 sm:mb-6">
-              Проекты
+              {t("pages.about.projects.title")}
             </h2>
             <p className="text-sm leading-7 text-black/80">
-              С моими проектами вы можете ознакомиться в разделе{" "}
+              {t("pages.about.projects.textBeforeLink")} {" "}
               <Link
                 href="/portfolio"
                 className="font-semibold text-black underline underline-offset-4 hover:text-black/70"
               >
                 /portfolio
               </Link>
-              .
+              {t("pages.about.projects.textAfterLink")}
             </p>
           </div>
 
           {/* Block 4: Contact */}
           <div>
             <h2 className="text-sm font-extrabold tracking-[0.25em] text-black uppercase mb-5 sm:mb-6">
-              Сотрудничество
+              {t("pages.about.cooperation.title")}
             </h2>
             <p className="text-sm leading-7 text-black/80">
-              Если я вас заинтересовал — буду рад обсудить сотрудничество в разделе{" "}
+              {t("pages.about.cooperation.textBeforeLink")} {" "}
               <Link
                 href="/contact"
                 className="font-semibold text-black underline underline-offset-4 hover:text-black/70"
               >
                 /contact
               </Link>
-              .
+              {t("pages.about.cooperation.textAfterLink")}
             </p>
           </div>
         </div>

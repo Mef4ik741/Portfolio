@@ -54,7 +54,26 @@
     },
     "about": {
       "title": "ABOUT ME",
-      "text": "Here will be detailed information about me."
+      "text": "Here will be detailed information about me.",
+      "education": {
+        "title": "EDUCATION",
+        "textBeforeLink": "I’m a .NET Back-end Developer and a graduate of",
+        "textAfterLink": ". I studied software development for 2.5 years, focusing on application architecture, server-side development, and building reliable systems."
+      },
+      "approach": {
+        "title": "MY APPROACH",
+        "text": "I chose backend development consciously — I like owning core application logic, architecture, security, and stability. I enjoy taking responsibility for the project foundation and making it scalable and reliable."
+      },
+      "projects": {
+        "title": "PROJECTS",
+        "textBeforeLink": "You can explore my projects in",
+        "textAfterLink": "."
+      },
+      "cooperation": {
+        "title": "COOPERATION",
+        "textBeforeLink": "If you’re interested, I’ll be happy to discuss collaboration in",
+        "textAfterLink": "."
+      }
     },
     "skills": {
       "title": "SKILLS",

@@ -54,7 +54,26 @@
     },
     "about": {
       "title": "HAQQIMDA",
-      "text": "Burada mənim haqqımda ətraflı məlumat olacaq."
+      "text": "Burada mənim haqqımda ətraflı məlumat olacaq.",
+      "education": {
+        "title": "TƏHSİL",
+        "textBeforeLink": "Mən .NET Back-end Developerəm və",
+        "textAfterLink": " akademiyasının məzunuyam. 2.5 il proqram təminatı inkişafı üzrə təhsil almışam: tətbiq arxitekturası, server tərəfli inkişaf və etibarlı sistemlərin qurulması prinsipləri."
+      },
+      "approach": {
+        "title": "YANAŞMAMAM",
+        "text": "Back-end istiqamətini şüurlu şəkildə seçmişəm — tətbiqin əsas məntiqinə, arxitekturaya, təhlükəsizliyə və stabil işləməsinə cavabdeh olmağı sevirəm. Layihənin bünövrəsini möhkəm qurmaq, onu genişlənə bilən və etibarlı etmək mənə maraqlıdır."
+      },
+      "projects": {
+        "title": "LAYİHƏLƏR",
+        "textBeforeLink": "Layihələrimlə",
+        "textAfterLink": " bölməsində tanış ola bilərsiniz."
+      },
+      "cooperation": {
+        "title": "ƏMƏKDAŞLIQ",
+        "textBeforeLink": "Maraqlanırsınızsa, əməkdaşlığı",
+        "textAfterLink": " bölməsində müzakirə etməyə şad olaram."
+      }
     },
     "skills": {
       "title": "BACARIQLAR",
