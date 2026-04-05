@@ -40,9 +40,15 @@ export async function GET(request: NextRequest) {
         "content-type": "text/plain; charset=utf-8",
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
-      { error: "Unexpected error", details: error?.message || String(error) },
+      {
+        error: "Unexpected error",
+        details:
+          error && typeof error === "object" && "message" in error
+            ? String((error as { message?: unknown }).message)
+            : String(error),
+      },
       { status: 500 }
     );
   }

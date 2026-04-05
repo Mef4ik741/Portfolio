@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useProjectsStore } from "@/store/projectsStore";
 
 export default function UploadPage() {
   // Form state
@@ -12,6 +13,9 @@ export default function UploadPage() {
   const [readme, setReadme] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const uploadFile = useProjectsStore((s) => s.uploadFile);
+  const createProject = useProjectsStore((s) => s.createProject);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -26,21 +30,6 @@ export default function UploadPage() {
     }
   };
 
-  const uploadFile = async (file: File, type: "image" | "readme") => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("type", type);
-
-    const res = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!res.ok) throw new Error("Upload failed");
-    const data = await res.json();
-    return data.url;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setUploading(true);
@@ -49,31 +38,22 @@ export default function UploadPage() {
     try {
       const imageUrls: string[] = [];
       for (const image of images) {
-        const url = await uploadFile(image, "image");
-        imageUrls.push(url);
+        imageUrls.push(await uploadFile(image, "image"));
       }
 
-      let readmeUrl = null;
+      let readmeUrl: string | null = null;
       if (readme) {
         readmeUrl = await uploadFile(readme, "readme");
       }
 
-      const projectData = {
+      await createProject({
         name,
         githubUrl: githubUrl || null,
         websiteUrl: websiteUrl || null,
         youtubeUrl: youtubeUrl || null,
         readmeUrl,
         images: imageUrls,
-      };
-
-      const res = await fetch("/api/projects", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(projectData),
       });
-
-      if (!res.ok) throw new Error("Failed to save project");
 
       // Reset form
       setName("");

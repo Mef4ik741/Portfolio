@@ -40,10 +40,16 @@ export async function GET() {
         "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error fetching projects:", error);
     return NextResponse.json(
-      { error: "Failed to fetch projects", details: error?.message || String(error) },
+      {
+        error: "Failed to fetch projects",
+        details:
+          error && typeof error === "object" && "message" in error
+            ? String((error as { message?: unknown }).message)
+            : String(error),
+      },
       { status: 500 }
     );
   }

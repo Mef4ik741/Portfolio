@@ -2,21 +2,17 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-
-interface Project {
-  id: number;
-  name: string;
-  github_url: string | null;
-  website_url: string | null;
-  youtube_url: string | null;
-  readme_url: string | null;
-  created_at: string;
-  images: { id: number; url: string; order: number }[];
-}
+import { useProjectsStore } from "@/store/projectsStore";
+import type { Project } from "@/api/types";
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
+  const projects = useProjectsStore((s) => s.projects);
+  const loading = useProjectsStore((s) => s.loading);
+  const loadProjects = useProjectsStore((s) => s.loadProjects);
+  const updateProject = useProjectsStore((s) => s.updateProject);
+  const deleteProject = useProjectsStore((s) => s.deleteProject);
+  const uploadFile = useProjectsStore((s) => s.uploadFile);
+
   const [isEditing, setIsEditing] = useState(false);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
   const fetchedRef = useRef(false);
@@ -31,43 +27,14 @@ export default function ProjectsPage() {
   const [uploading, setUploading] = useState(false);
 
   const fetchProjects = useCallback(async () => {
-    try {
-      const res = await fetch("/api/projects");
-      const data = await res.json();
-      if (Array.isArray(data)) {
-        setProjects(data);
-      } else {
-        console.error("API returned error:", data);
-        setProjects([]);
-      }
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-      setProjects([]);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+    await loadProjects();
+  }, [loadProjects]);
 
   useEffect(() => {
     if (fetchedRef.current) return;
     fetchedRef.current = true;
     fetchProjects();
   }, [fetchProjects]);
-
-  const uploadFile = async (file: File, type: "image" | "readme") => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("type", type);
-
-    const res = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!res.ok) throw new Error("Upload failed");
-    const data = await res.json();
-    return data.url;
-  };
 
   const handleEdit = (project: Project) => {
     setCurrentProject(project);
@@ -91,8 +58,7 @@ export default function ProjectsPage() {
       if (images.length > 0) {
         imageUrls = [];
         for (const image of images) {
-          const url = await uploadFile(image, "image");
-          imageUrls.push(url);
+          imageUrls.push(await uploadFile(image, "image"));
         }
       }
 
@@ -102,26 +68,18 @@ export default function ProjectsPage() {
         readmeUrl = await uploadFile(readme, "readme");
       }
 
-      const projectData = {
+      await updateProject(currentProject.id, {
         name,
         githubUrl: githubUrl || null,
         websiteUrl: websiteUrl || null,
         youtubeUrl: youtubeUrl || null,
         readmeUrl,
         images: imageUrls,
-      };
-
-      const res = await fetch(`/api/projects/${currentProject.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(projectData),
       });
-
-      if (!res.ok) throw new Error("Failed to update project");
 
       setIsEditing(false);
       setCurrentProject(null);
-      fetchProjects();
+      await fetchProjects();
     } catch (error) {
       console.error("Error updating project:", error);
       alert("Ошибка при обновлении проекта");
@@ -134,9 +92,8 @@ export default function ProjectsPage() {
     if (!confirm("Удалить проект?")) return;
 
     try {
-      const res = await fetch(`/api/projects/${id}`, { method: "DELETE" });
-      if (!res.ok) throw new Error("Failed to delete");
-      fetchProjects();
+      await deleteProject(id);
+      await fetchProjects();
     } catch (error) {
       console.error("Error deleting:", error);
       alert("Ошибка при удалении");
